@@ -10,7 +10,7 @@ const {
 exports.suscribeToAddress = async (req, res, next) => {
   try {
     const { address, startingBlockId } = req.body;
-    trackContract(address, this.onNewTransaction, startingBlockId);
+    await trackContract(address, this.onNewTransaction, startingBlockId);
     res.status(200).json({ msg: `new token ${address} add for tracking...` });
   } catch (error) {
     next(error);

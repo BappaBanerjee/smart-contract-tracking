@@ -121,7 +121,7 @@ class TokenService {
 
     // Creating and sending the transaction object
     const tx_result = await walletSigner.sendTransaction({
-      to,
+      to: contract.address,
       from: walletSigner.address,
       value: ethers.utils.parseUnits("0.000", "ether"),
       gasPrice,

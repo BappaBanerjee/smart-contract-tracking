@@ -7,10 +7,9 @@ const { APIError } = require("../utils/api-error");
 let mapAddressToTokenService = new Map();
 
 function trackContract(address, onNewTransaction, prevBlockId = 0) {
-  if (mapAddressToTokenService.has(address)) return false;
+  if (mapAddressToTokenService.has(address))
+    throw new Error(`address already mapped`);
 
-  // TODO @bappa
-  // write logic here to use different providers
   let tokenService = new TokenService(
     address,
     contract_abi,
